@@ -855,6 +855,20 @@ docker run --name multi-postgres \
 
 ```sql
 -- พื้นที่สำหรับคำตอบ - เขียน SQL commands ที่ใช้
+-- 1. สร้าง Role Groups
+CREATE ROLE app_developers;
+CREATE ROLE data_analysts;
+CREATE ROLE db_admins;
+
+-- 2. สร้าง Users พร้อมรหัสผ่าน
+CREATE ROLE dev_user LOGIN PASSWORD 'dev123';
+CREATE ROLE analyst_user LOGIN PASSWORD 'analyst123';
+CREATE ROLE admin_user LOGIN PASSWORD 'admin123';
+
+-- 3. กำหนดสมาชิกของ Role Groups
+GRANT app_developers TO dev_user;
+GRANT data_analysts TO analyst_user;
+GRANT db_admins TO admin_user;
 
 ```
 
@@ -862,8 +876,15 @@ docker run --name multi-postgres \
 ```
 ใส่ Screenshot ของ:
 1. การสร้าง roles และ users
+![alt text](image-53.png)
+![alt text](image-54.png)
 2. ผลการรัน \du แสดงผู้ใช้ทั้งหมด
+![alt text](image-56.png)
+![alt text](image-55.png)
 3. ผลการทดสอบเชื่อมต่อด้วย user ต่างๆ
+![alt text](image-57.png)
+![alt text](image-58.png)
+![alt text](image-59.png)
 ```
 
 ### แบบฝึกหัด 3: Schema Design และ Complex Queries
