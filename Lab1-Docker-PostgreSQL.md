@@ -79,11 +79,11 @@ docker run hello-world
 ```
 
 **บันทึกผลการทดลอง - การเตรียมความพร้อม:**
-```
 ใส่ Screenshot ของผลการรัน docker --version และ docker run hello-world ที่นี่
+
 ![alt text](image-2.png)
 ![alt text](image-3.png)
-```
+
 
 ## ขั้นตอนการทดลอง
 
@@ -105,10 +105,10 @@ docker inspect postgres
 
 
 **บันทึกผลการทดลอง - Step 1:**
-```
 ใส่ Screenshot ของผลการรัน docker images ที่นี่
+
 ![alt text](image.png)
-```
+
 
 ### Step 2: Create Docker Volume for Data Persistence
 
@@ -129,11 +129,12 @@ docker volume create postgres-config
 **คำอธิบาย**: Docker Volume จะทำให้ข้อมูลคงอยู่แม้ Container จะถูกลบ
 
 **บันทึกผลการทดลอง - Step 2:**
-```
+
 ใส่ Screenshot ของผลการรัน docker volume ls และ docker volume inspect postgres-data ที่นี่
+
 ![alt text](image-1.png)
 ![alt text](image-4.png)
-```
+
 
 ### Step 3: Create PostgreSQL Container with Volume
 
@@ -165,10 +166,10 @@ docker run --name postgres-lab \
 - `-c shared_buffers=256MB`: กำหนด shared buffers
 
 **บันทึกผลการทดลอง - Step 3:**
-```
 ใส่ Screenshot ของผลการรัน docker run ที่นี่
+
 ![alt text](image-5.png)
-```
+
 
 ### Step 4: Verify Container Status and Resource Usage
 
@@ -187,7 +188,7 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผลการทดลอง - Step 4:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการรัน docker ps
 ![alt text](image-6.png)
@@ -196,7 +197,7 @@ docker volume inspect postgres-data
 ![alt text](image-8.png)
 3. ผลการรัน docker stats
 ![alt text](image-9.png)
-```
+
 
 ### Step 5: Connect to PostgreSQL และตรวจสอบ Configuration
 
@@ -236,7 +237,7 @@ WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_
 ```
 
 **บันทึกผลการทดลอง - Step 5:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการรัน SELECT version();
 ![alt text](image-10.png)
@@ -245,7 +246,7 @@ WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_
 3. ผลการรัน \l และ \du
 ![alt text](image-12.png)
 ![alt text](image-13.png)
-```
+
 
 ### Step 6: Database Management Operations
 
@@ -284,7 +285,7 @@ WHERE datname = 'lab_db';
 ```
 
 **บันทึกผลการทดลอง - Step 6:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการสร้าง lab_db
 ![alt text](image-14.png)
@@ -292,7 +293,7 @@ WHERE datname = 'lab_db';
 ![alt text](image-15.png)
 3. ผลการ query ข้อมูลฐานข้อมูล
 ![alt text](image-16.png)
-```
+
 
 ### Step 7: User และ Role Management
 
@@ -345,7 +346,7 @@ WHERE r.rolname NOT LIKE 'pg_%';
 ```
 
 **บันทึกผลการทดลอง - Step 7:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการสร้าง users ทั้งหมด
 ![alt text](image-17.png)
@@ -353,7 +354,7 @@ WHERE r.rolname NOT LIKE 'pg_%';
 ![alt text](image-18.png)
 3. ผลการ query pg_roles
 ![alt text](image-19.png)
-```
+
 
 ### Step 8: การจัดการสิทธิ์ User
 
@@ -410,7 +411,7 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 ```
 
 **บันทึกผลการทดลอง - Step 8:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการ ALTER USER commands
 ![alt text](image-20.png)
@@ -421,7 +422,7 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 ![alt text](image-23.png)
 ![alt text](image-24.png)
 ![alt text](image-25.png)
-```
+
 **คำถาม
  ```
 Access Privileges   postgres=arwdDxtm/postgres มีความหมายอย่างไร
@@ -527,7 +528,7 @@ INSERT INTO hr.employee_orders (employee_id, customer_id, order_date, commission
 ```
 
 **บันทึกผลการทดลอง - Step 9:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการสร้าง schemas (\dn+)
 ![alt text](image-26.png)
@@ -540,7 +541,7 @@ INSERT INTO hr.employee_orders (employee_id, customer_id, order_date, commission
 ![alt text](image-31.png)
 4. ข้อมูลในตาราง employee_orders ที่จะใช้สำหรับ JOIN ข้าม schema
 ![alt text](image-32.png)
-```
+
 
 ### Step 10: ทดสอบการเข้าถึง Schema และ Search Path
 
@@ -601,7 +602,7 @@ SET search_path TO public;
 ```
 
 **บันทึกผลการทดลอง - Step 10:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการแสดง search_path
 ![alt text](image-33.png)
@@ -612,7 +613,7 @@ SET search_path TO public;
 ![alt text](image-36.png)
 4. ข้อมูลที่แสดงจาก complex join ข้าม 3 schemas
 ![alt text](image-37.png)
-```
+
 
 ### Step 11: ทดสอบการเชื่อมต่อจาก User อื่น
 
@@ -638,7 +639,7 @@ INSERT INTO test_permissions (name) VALUES ('Test by lab_user'); -- ทำไม
 ```
 
 **บันทึกผลการทดลอง - Step 11:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการเชื่อมต่อด้วย lab_user
 ![alt text](image-38.png)
@@ -647,7 +648,7 @@ INSERT INTO test_permissions (name) VALUES ('Test by lab_user'); -- ทำไม
 3. ข้อความ error (ถ้ามี) เมื่อไม่มีสิทธิ์
 ![alt text](image-40.png)
 ![alt text](image-41.png)
-```
+
 
 ### Step 12: การจัดการ Volume และ Data Persistence
 
@@ -677,7 +678,7 @@ docker run --name postgres-backup-test \
 ```
 
 **บันทึกผลการทดลอง - Step 12:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการหยุดและเริ่ม Container
 ![alt text](image-42.png)
@@ -686,7 +687,7 @@ docker run --name postgres-backup-test \
 ![alt text](image-44.png)
 3. ผลการสร้าง container พร้อม bind mount
 ![alt text](image-45.png)
-```
+
 
 ## การตรวจสอบผลงานและ Performance
 
@@ -755,7 +756,7 @@ WHERE state = 'active';
 ```
 
 **บันทึกผล Checkpoint 2:**
-```
+
 ใส่ Screenshot ของ:
 1. Database statistics
 ![alt text](image-47.png)
@@ -763,7 +764,7 @@ WHERE state = 'active';
 ![alt text](image-48.png)
 3. Active connections
 ![alt text](image-49.png)
-```
+
 
 ## การแก้ไขปัญหาเบื้องต้น
 
@@ -830,7 +831,7 @@ docker run --name multi-postgres \
 ```
 
 **ผลการทำแบบฝึกหัด 1:**
-```
+
 ใส่ Screenshot ของ:
 1. คำสั่งที่ใช้สร้าง container
 ![alt text](image-50.png)
@@ -838,7 +839,7 @@ docker run --name multi-postgres \
 ![alt text](image-51.png)
 3. docker stats แสดงการใช้ resources
 ![alt text](image-52.png)
-```
+
 
 ### แบบฝึกหัด 2: User Management และ Security
 **คำสั่ง**: สร้างระบบผู้ใช้ที่สมบูรณ์:
@@ -873,7 +874,7 @@ GRANT db_admins TO admin_user;
 ```
 
 **ผลการทำแบบฝึกหัด 2:**
-```
+
 ใส่ Screenshot ของ:
 1. การสร้าง roles และ users
 ![alt text](image-53.png)
@@ -885,7 +886,7 @@ GRANT db_admins TO admin_user;
 ![alt text](image-57.png)
 ![alt text](image-58.png)
 ![alt text](image-59.png)
-```
+
 
 ### แบบฝึกหัด 3: Schema Design และ Complex Queries
 **คำสั่ง**: สร้างระบบฐานข้อมูลร้านค้าออนไลน์:
@@ -1034,13 +1035,13 @@ INSERT INTO ecommerce.order_items (order_id, product_id, quantity, price) VALUES
 ```
 
 **ผลการทำแบบฝึกหัด 3:**
-```
+
 ใส่ Screenshot ของ:
 1. โครงสร้าง schemas และ tables (\dn+, \dt ecommerce.*)
 2. ข้อมูลตัวอย่างในตารางต่างๆ
 3. ผลการรัน queries ที่สร้าง
 4. การวิเคราะห์ข้อมูลที่ได้
-```
+
 
 
 ## การทดสอบความเข้าใจ
