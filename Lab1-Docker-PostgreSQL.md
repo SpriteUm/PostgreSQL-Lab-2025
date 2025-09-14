@@ -1168,7 +1168,7 @@ INSERT INTO ecommerce.order_items (order_id, product_id, quantity, price) VALUES
 ![alt text](image-65.png)
 ![alt text](image-66.png)
 3. ผลการรัน queries ที่สร้าง
-![alt text](image-62.png)
+![alt text](/image-62.png)
 ![alt text](image-63.png)
 ![alt text](image-64.png)
 4. การวิเคราะห์ข้อมูลที่ได้
